@@ -1,30 +1,29 @@
 <template lang="pug">
 table.base-table
   thead.base-table__header
-    th.base-table__row(:style="rowStyles")
+    th.base-table__row
       td.base-table__header-cell(
         v-for="column in columns"
         :key="column.columnId"
       )
-        slot(:name="`header-cell-${column.columnId}`" v-bind="column")
+        slot(:name="`header-cell-${String(column.columnId)}`" v-bind="column")
           p {{ column.label }}
 
   tbody.base-table__body
     tr.base-table__row(
       v-for="(row, index) in rows"
       :key="index"
-      :style="rowStyles"
     )
       td.base-table__cell(
         v-for="column in columns"
         :key="column.columnId"
       )
-        slot(:name="`cell-${column.columnId}`" v-bind="row")
+        slot(:name="`cell-${String(column.columnId)}`" v-bind="row")
           p {{ row[column.columnId] }}
 </template>
 
 <script setup lang='ts' generic="TableObject">
-import type { CSSProperties } from 'vue';
+import { computed, type CSSProperties } from 'vue';
 
 export interface Column<T> {
   readonly columnId: keyof T;
@@ -36,6 +35,12 @@ export type Row<T> = {
   readonly [key in keyof T]: T[key];
 };
 
+type SlotCells<T> = {
+  [key in keyof T & string as `header-cell-${key}`]: (props: T) => any;
+} & {
+  [key in keyof T & string as `cell-${key}`]: (props: T) => void;
+};
+
 const {
   columns,
   rows,
@@ -44,9 +49,7 @@ const {
   rows: Row<TableObject>[];
 }>();
 
-defineSlots<{
-  [key: `row-${string}`]: (props: Row<TableObject>) => void,
-}>();
+defineSlots<SlotCells<TableObject>>();
 
 const rowGridAutoColumns = computed((): CSSProperties['grid-auto-columns'] => {
   const columnsValues: Column<TableObject>['width'][] = columns.map((column) => {

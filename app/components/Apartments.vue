@@ -7,8 +7,8 @@
       :columns="COLUMNS"
       :rows="ROWS"
     )
-      template(#cell-planImageUrl="row")
-        img.apartments__image(:src='row.planImageUrl')
+      template(#cell-planImageUrl="{ planImageUrl }")
+        img.apartments__image(:src='planImageUrl')
 </template>
 
 <script setup lang='ts'>
@@ -22,7 +22,7 @@ interface Flat {
   price: number;
 }
 
-const COLUMNS = [
+const COLUMNS: Column<Flat>[] = [
   {
     columnId: 'planImageUrl',
     label: 'Планировка',
@@ -48,7 +48,7 @@ const COLUMNS = [
     label: 'Цена, ₽',
     width: '120px',
   },
-] as const satisfies readonly Column<Flat>[];
+];
 
 const ROWS: Row<Flat>[] = [
   {
