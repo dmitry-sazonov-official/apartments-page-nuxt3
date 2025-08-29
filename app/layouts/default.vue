@@ -1,6 +1,6 @@
 <template lang="pug">
-NuxtLayout
-  NuxtPage
+.default-layout
+  slot
 </template>
 
 <script setup lang='ts'>
@@ -8,7 +8,7 @@ NuxtLayout
 </script>
 
 <style lang="scss" scoped>
-.app {
+.default-layout {
   $root: &;
 
 }

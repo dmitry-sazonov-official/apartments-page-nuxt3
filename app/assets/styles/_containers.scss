@@ -1,0 +1,12 @@
+@mixin container {
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+@each $breakpoint in 1440, 960 {
+  .container-#{$breakpoint} {
+    @include container;
+    max-width: #{$breakpoint + 40}px;
+  }
+}

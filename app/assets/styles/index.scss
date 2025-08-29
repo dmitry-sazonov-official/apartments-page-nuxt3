@@ -1,0 +1,27 @@
+@import 'reset';
+@import 'colors';
+@import 'fonts';
+@import 'containers';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: $colorMainBlue;
+  background-color: $colorWhite;
+  font-family: 'PT Root UI', sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overscroll-behavior: none;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+#__nuxt {
+  display: contents;
+}

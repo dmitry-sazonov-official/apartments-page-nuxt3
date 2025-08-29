@@ -1,0 +1,11 @@
+$colorWhite: #FFFFFF;
+$colorBlack: #000000;
+
+$colorMainBlue: #0B1739;
+
+@mixin text-gradient($color) {
+  background: $color;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+

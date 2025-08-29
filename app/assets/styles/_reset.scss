@@ -1,0 +1,31 @@
+*,
+p,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  outline: inherit;
+  line-height: inherit;
+  pointer-events: inherit;
+  -webkit-user-select: inherit;
+  user-select: inherit;
+  text-decoration: inherit;
+  letter-spacing: inherit;
+  vertical-align: middle;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  user-select: text;
+}
