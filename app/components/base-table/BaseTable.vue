@@ -23,12 +23,12 @@ table.base-table
 </template>
 
 <script setup lang='ts' generic="TableObject">
-import { computed, type CSSProperties } from 'vue';
+import { computed, type CSSProperties } from "vue";
 
 export interface Column<T> {
   readonly columnId: keyof T;
   readonly label: string;
-  readonly width?: `${number}px` | `${number}fr` | 'auto';
+  readonly width?: `${number}px` | `${number}fr` | "auto";
 }
 
 export type Row<T> = {
@@ -36,7 +36,7 @@ export type Row<T> = {
 };
 
 type SlotCells<T> = {
-  [key in keyof T & string as `header-cell-${key}`]: (props: T) => any;
+  [key in keyof T & string as `header-cell-${key}`]: (props: T) => void;
 } & {
   [key in keyof T & string as `cell-${key}`]: (props: T) => void;
 };
@@ -51,12 +51,12 @@ const {
 
 defineSlots<SlotCells<TableObject>>();
 
-const rowGridAutoColumns = computed((): CSSProperties['grid-auto-columns'] => {
-  const columnsValues: Column<TableObject>['width'][] = columns.map((column) => {
-    return column.width || 'auto';
+const rowGridAutoColumns = computed((): CSSProperties["grid-auto-columns"] => {
+  const columnsValues: Column<TableObject>["width"][] = columns.map((column) => {
+    return column.width || "auto";
   });
 
-  return columnsValues.join(' ');
+  return columnsValues.join(" ");
 });
 </script>
 

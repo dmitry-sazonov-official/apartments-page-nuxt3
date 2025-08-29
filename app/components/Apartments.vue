@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang='ts'>
-import BaseTable, { type Column, type Row } from '~/components/base-table/BaseTable.vue';
+import BaseTable, { type Column, type Row } from "~/components/base-table/BaseTable.vue";
 
 interface Flat {
   planImageUrl: string;
@@ -24,45 +24,45 @@ interface Flat {
 
 const COLUMNS: Column<Flat>[] = [
   {
-    columnId: 'planImageUrl',
-    label: 'Планировка',
-    width: '80px',
+    columnId: "planImageUrl",
+    label: "Планировка",
+    width: "80px",
   },
   {
-    columnId: 'name',
-    label: 'Квартира',
-    width: '1fr',
+    columnId: "name",
+    label: "Квартира",
+    width: "1fr",
   },
   {
-    columnId: 'square',
-    label: 'S, м²',
-    width: '120px',
+    columnId: "square",
+    label: "S, м²",
+    width: "120px",
   },
   {
-    columnId: 'floor',
-    label: 'Этаж',
-    width: '120px',
+    columnId: "floor",
+    label: "Этаж",
+    width: "120px",
   },
   {
-    columnId: 'price',
-    label: 'Цена, ₽',
-    width: '120px',
+    columnId: "price",
+    label: "Цена, ₽",
+    width: "120px",
   },
 ];
 
 const ROWS: Row<Flat>[] = [
   {
-    planImageUrl: '/images/flat-plan.webp',
-    name: '3-комнатная №104',
+    planImageUrl: "/images/flat-plan.webp",
+    name: "3-комнатная №104",
     square: 63.1,
-    floor: '1 из 17',
+    floor: "1 из 17",
     price: 6630500,
   },
   {
-    planImageUrl: '/images/flat-plan.webp',
-    name: '3-комнатная №104',
+    planImageUrl: "/images/flat-plan.webp",
+    name: "3-комнатная №104",
     square: 63.1,
-    floor: '1 из 17',
+    floor: "1 из 17",
     price: 6630500,
   },
 ];

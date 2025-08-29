@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang='ts'>
-import Apartments from '~/components/Apartments.vue'
+import Apartments from "~/components/Apartments.vue"
 </script>
 
 <style lang="scss" scoped>
